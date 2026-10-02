@@ -21,7 +21,7 @@ export function Ideas() {
     return () => st.kill();
   }, []);
   return (
-    <Section id="ideas" n={6} label="Ideas" sticky>
+    <Section id="ideas" n={7} label="Ideas" sticky>
       <div ref={track} className={still ? "" : "h-[320vh]"}>
         <div className={still ? "py-16" : "sticky top-0 flex h-screen items-center"}>
           <ol className="space-y-2 text-[clamp(1.75rem,5vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.03em]">

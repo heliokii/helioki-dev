@@ -24,7 +24,7 @@ export function Contact() {
     return () => ctx.revert();
   }, []);
   return (
-    <Section id="contact" n={7} label="Contact" className="flex min-h-screen flex-col">
+    <Section id="contact" n={8} label="Contact" className="flex min-h-screen flex-col">
       <h2 ref={headingRef} className="mt-16 max-w-4xl text-[clamp(2.5rem,8vw,8rem)] font-semibold leading-[0.95] tracking-[-0.04em]">Got an idea? Let&apos;s bring it to light.</h2>
       <div ref={linksRef} className="mt-10 flex flex-col gap-3 text-xl">
         <EmailLink user="eliiorestea" host="gmail.com" className="w-fit underline underline-offset-4" />

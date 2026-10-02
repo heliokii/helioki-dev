@@ -1,8 +1,8 @@
 @tailwind base; @tailwind components; @tailwind utilities;
 :root { --bg:#FFFFFF; --ink:#000000; --muted:#6B6B6B; --line:#E5E5E5; --unlit:#CFCFCF; --bg-inverse:#000000; --ink-inverse:#FFFFFF; --pad:1.25rem; }
 @media (min-width:768px){ :root{ --pad:2.5rem; } }
-html { background:var(--bg); color:var(--ink); }
-body { font-family:var(--font-display), system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+html { background:var(--bg); color:var(--ink); scroll-behavior:smooth; }
+body { font-family:var(--font-display), system-ui, sans-serif; -webkit-font-smoothing:antialiased; overflow-x:clip; }
 :focus-visible { outline:2px solid currentColor; outline-offset:4px; }
 .label { font-family:var(--font-mono), monospace; font-size:.75rem; letter-spacing:.04em; text-transform:uppercase; }
 .roll { display:inline-block; overflow:hidden; vertical-align:bottom; height:1.2em; line-height:1.2em; }
@@ -11,7 +11,25 @@ body { font-family:var(--font-display), system-ui, sans-serif; -webkit-font-smoo
 @keyframes marquee { to { transform:translateX(-50%); } }
 .marquee-track { display:flex; width:max-content; }
 .marquee-track.is-auto { animation:marquee 30s linear infinite; }
+/* Pinned horizontal scroll: full-bleed track; the section itself has px-0 so
+   the pin measures against the viewport. Do NOT use overflow on the pinned
+   element's ancestors (Section uses overflow-hidden which breaks pinning,
+   so Showcase opts out with px-0 + inner padding instead). */
+.horizontal-outer { margin-inline: 0; }
+.horizontal-outer.is-fallback { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.horizontal-outer.is-fallback .horizontal-track { transform:none !important; }
+.horizontal-track > * { flex-shrink:0; }
+/* Big outline headline that fills as you scroll (see ScrollFill in Meaning). */
+.text-stroke { -webkit-text-stroke:1.5px currentColor; color:transparent; }
+/* Scroll-hint bounce */
+@keyframes scroll-hint { 0%,100% { transform:translateY(0); } 50% { transform:translateY(8px); } }
+.scroll-hint { animation:scroll-hint 1.8s ease-in-out infinite; }
+/* Slow spin for badges */
+@keyframes spin-slow { to { transform:rotate(360deg); } }
+.spin-slow { animation:spin-slow 14s linear infinite; }
 @media (prefers-reduced-motion:reduce){
   .marquee-track.is-auto{ animation:none; } .roll > span{ transition:none; transform:none !important; }
   html{ scroll-behavior:auto; }
+  .scroll-hint, .spin-slow { animation:none; }
 }
+

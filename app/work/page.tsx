@@ -15,7 +15,6 @@ export default async function WorkPage({ searchParams }: Props) {
   const p = getProject(slug);
   const i = projects.indexOf(p);
   const shots = existingImages(p.images);
-  const [w, h] = p.mobile ? [390, 844] : [1440, 900];
   return (
     <main className="min-h-screen px-[var(--pad)] py-6" style={{ ["--accent" as string]: p.accent }}>
       <div className="label flex justify-between border-b border-line pb-3">
@@ -31,10 +30,10 @@ export default async function WorkPage({ searchParams }: Props) {
         </div>
         <div className="mt-6 h-1 w-24 bg-[var(--accent)]" aria-hidden="true" />
       </Stagger>
-      <Stagger className={`mt-10 grid gap-4 ${p.mobile ? "grid-cols-2 md:grid-cols-3" : ""}`} stagger={0.12}>
+      <Stagger className="mt-10 grid gap-4" stagger={0.12}>
         {shots.length ? shots.map((src, n) => (
-          <Image key={src} src={src} width={w} height={h} alt={`${p.name} screen ${n + 1}`} priority={n === 0} className="w-full border border-line" />
-        )) : <p className="label border border-line p-16 text-center text-muted">[IMAGES NEEDED: {p.slug}-1.webp, -2, -3]</p>}
+          <Image key={src} src={src} width={1280} height={720} alt={`${p.name} screen ${n + 1}`} priority={n === 0} className="aspect-[16/9] w-full border border-line object-cover object-center" />
+        )) : <p className="label border border-line p-16 text-center text-muted">[IMAGES NEEDED: {p.slug}-1.jpg, -2, -3]</p>}
       </Stagger>
       <p className="label mt-10 text-muted">Scroll to explore ↓</p>
       <Reveal className="label mt-6 border-t border-line pt-4">
