@@ -5,6 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Section } from "@/components/ui/Section";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { EmailLink } from "@/components/ui/EmailLink";
+import { Socials } from "@/components/ui/Socials";
+import { BkLogo } from "@/components/ui/BkLogo";
 
 export function Contact() {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -26,11 +28,17 @@ export function Contact() {
   return (
     <Section id="contact" n={8} label="Contact" className="flex min-h-screen flex-col">
       <h2 ref={headingRef} className="mt-16 max-w-4xl text-[clamp(2.5rem,8vw,8rem)] font-semibold leading-[0.95] tracking-[-0.04em]">Got an idea? Let&apos;s bring it to light.</h2>
+      <p className="label mt-4 flex items-center gap-2 text-muted"><BkLogo size={28} /> Elijah Oreste — Sariaya, PH</p>
       <div ref={linksRef} className="mt-10 flex flex-col gap-3 text-xl">
         <EmailLink user="eliiorestea" host="gmail.com" className="w-fit underline underline-offset-4" />
         <ArrowLink href="https://github.com/heliokii" external>GitHub ↗</ArrowLink>
       </div>
-      <footer ref={footerRef} className="label mt-auto flex justify-between pt-24"><span>HELIOKI®</span><span>25—26®</span></footer>
+      <Socials />
+      <footer ref={footerRef} className="label mt-auto flex items-center justify-between gap-4 pt-24">
+        <span className="flex items-center gap-2"><BkLogo size={26} /> HELIOKI® — Elijah Oreste</span>
+        <span>25—26®</span>
+      </footer>
     </Section>
   );
 }
+

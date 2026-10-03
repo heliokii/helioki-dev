@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="BK monogram">
+  <rect width="320" height="320" fill="#FFFFFF"/>
+  <!-- Tall framed BK mark: outer box + middle bar + two K diagonals -->
+  <g stroke="#000000" stroke-width="18" stroke-linecap="butt" stroke-linejoin="miter">
+    <!-- outer frame -->
+    <line x1="99" y1="55" x2="221" y2="55"/>
+    <line x1="99" y1="271" x2="221" y2="271"/>
+    <line x1="99" y1="55" x2="99" y2="271"/>
+    <line x1="221" y1="55" x2="221" y2="271"/>
+    <!-- middle bar -->
+    <line x1="99" y1="167" x2="221" y2="167"/>
+    <!-- upper K arm: top edge down to left edge -->
+    <line x1="198" y1="55" x2="99" y2="192"/>
+    <!-- lower K leg: middle bar down to bottom edge -->
+    <line x1="150" y1="167" x2="208" y2="271"/>
+  </g>
+</svg>
+

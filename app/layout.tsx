@@ -8,10 +8,11 @@ const desc = "Bringing your idea to light: quiet, fast websites and apps, built 
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title: { default: "Helioki®: web design and development", template: "%s | Helioki®" },
+  title: { default: "Helioki® — Elijah Oreste: web design and development", template: "%s | Helioki® — Elijah Oreste" },
   description: desc,
-  openGraph: { title: "Helioki®", description: desc, locale: "en_PH", type: "website" },
-  twitter: { card: "summary_large_image", title: "Helioki®", description: desc },
+  icons: { icon: "/bk-logo.svg", apple: "/bk-logo.svg" },
+  openGraph: { title: "Helioki® — Elijah Oreste", description: desc, locale: "en_PH", type: "website" },
+  twitter: { card: "summary_large_image", title: "Helioki® — Elijah Oreste", description: desc },
 };
 export const viewport: Viewport = { themeColor: "#FFFFFF" };
 
